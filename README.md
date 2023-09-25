@@ -46,6 +46,34 @@ A heatmap will be generated showcasing the normalized cosine similarity between 
 
 ---
 
-To use this script, it's recommended to have a basic understanding of Python programming, clustering techniques, and the libraries mentioned above. Adjustments might be necessary based on your specific data structure and requirements.
+## Data Preparation
+
+### Overview:
+
+The provided code is designed to extract and structure data from a large, unstructured file containing complex data types that are not natively JSON serializable. The primary objective is to convert these data types into a structured JSON format, making it easier to further process or analyze them.
+
+### Method:
+
+1. **Define Regular Expressions**: The script starts by defining regular expression patterns for each data type to recognize and extract the relevant information.
+2. **Parsing Functions**: A set of parsing functions (`parse_datetime`, `parse_location`, `parse_tuple`, `parse_dict`, `parse_set`) are defined to convert the matched strings of each data type into a JSON-compatible format.
+3. **Single Entry Parsing**: The `parse_single_entry` function takes a set of lines (representing a single entry) and identifies the data type present in each line. It then calls the appropriate parsing function to convert the data.
+4. **Large File Parsing**: The `parse_large_file` function reads the large file line by line. For each entry, it accumulates lines until all fields of an entry are identified. It then invokes the `parse_single_entry` function and appends the parsed result to the `parsed_entries` list.
+5. **File to JSON Conversion**: After parsing all entries from the file, the data is converted to a JSON format using the `json.dumps` function.
+
+### How to Use:
+
+1. **Set the File Path**: Replace the placeholder `file_path` with the path to the unstructured file you wish to process.
+   ```python
+   file_path = <</path/to/your/file.txt>>
+   ```
+2. **Run the Script**: Execute the entire script. 
+3. **Output**: At the end of the script, `json_data_from_file` will contain the parsed data in a structured JSON format. You can save this to a new file or use it for further processing.
+4. **Dataset completion**  Run over all files.
+
+### Recommendations:
+
+- Ensure the unstructured file adheres to the expected formats for each data type. If there are variations or additional data types, you may need to adjust the regular expressions or add new parsing functions.
+- Always backup your original data file before running any parsing or data transformation scripts on it to prevent accidental data loss or corruption.
+- Test the script on a small subset of your data first to ensure it works as expected before processing the entire file.
 
 
