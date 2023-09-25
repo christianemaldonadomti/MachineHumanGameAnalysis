@@ -78,7 +78,7 @@ def parse_large_file(file_path):
     return parsed_entries
 
 # File path (replace this with the path to your large file)
-file_path = "/path/to/your/large_file.txt"
+file_path = "/path/to/your/file.txt"
 
 # Parse multiple entries from the large file
 parsed_entries_from_file = parse_large_file(file_path)
