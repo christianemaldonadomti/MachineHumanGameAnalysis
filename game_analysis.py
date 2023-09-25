@@ -15,7 +15,7 @@ import pandas as pd
 import seaborn as sns
 
 # Replace with your Google Drive folder path containing the JSON files
-folder_path = "/plays"
+folder_path = <<.../plays>>
 
 # Initialize a dictionary to store clustering results for each game
 clustering_results = {}
